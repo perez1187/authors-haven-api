@@ -17,6 +17,9 @@ from .pagination import ProfilePagination
 from .renderers import ProfileJSONRenderer, ProfilesJSONRenderer
 from .serializers import FollowingSerializer, ProfileSerializer, UpdateProfileSerializer
 
+# test
+from .tasks import add
+
 User = get_user_model()
 
 # @api_view(["GET"])
@@ -87,6 +90,10 @@ class UpdateProfileAPIView(APIView):
         )
         if serializer.is_valid():
             serializer.save()
+        
+        # here test task
+        add.delay(user_name)
+
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
