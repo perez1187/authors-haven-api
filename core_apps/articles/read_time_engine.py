@@ -16,7 +16,7 @@ class ArticleReadTimeEngine:
     def get_title(self):
         return self.article.title
 
-# this is get tags from article
+    # this is get tags from article
     def get_tags(self):
         tag_words = []
         [tag_words.extend(tag_word.split()) for tag_word in self.article.list_of_tags]
@@ -33,7 +33,9 @@ class ArticleReadTimeEngine:
         details.extend(self.get_title().split())
         details.extend(self.get_body().split())
         details.extend(self.get_description().split())
-        details.extend(self.get_tags()) # so tags we are not spliting, bec there are split higher
+        details.extend(
+            self.get_tags()
+        )  # so tags we are not spliting, bec there are split higher
         return details
 
     def get_read_time(self):

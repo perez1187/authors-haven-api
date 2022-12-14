@@ -40,7 +40,7 @@ class Article(TimeStampedUUIDModel):
     def __str__(self):
         return f"{self.author.username}'s article"
 
-# list of tags is from read_time_engine
+    # list of tags is from read_time_engine
     @property
     def list_of_tags(self):
         tags = [tag.tag for tag in self.tags.all()]

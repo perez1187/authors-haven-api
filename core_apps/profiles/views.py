@@ -90,7 +90,7 @@ class UpdateProfileAPIView(APIView):
         )
         if serializer.is_valid():
             serializer.save()
-        
+
         # here test task
         add.delay(user_name)
 
@@ -159,7 +159,7 @@ class FollowUnfollowAPIView(generics.GenericAPIView):
 
         current_user_profile.follow(userprofile_instance)
 
-        ''' now we will send email with notification '''
+        """ now we will send email with notification """
 
         subject = "A new user follows you"
         message = f"Hi there {specific_user.username}!!, the user {current_user_profile.user.username} now follows you"
